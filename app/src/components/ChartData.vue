@@ -12,6 +12,9 @@ async function getData(url) {
   }
 }
 
+const arrests = result;
+
+
 // const config = {
 //   type: 'radar',
 //   data: data,
@@ -24,10 +27,18 @@ async function getData(url) {
 //   },
 // };
 
+//graph with latitude asnd longitude axes, points plotted based on provided location, and map of manhattan, aligninig with map coordinates is in the background.
+
 </script>
 
 <template>
   <main>
     <button @click="getData(url)">Get Data</button>
+    <div v-for="arrest in arrests" :key="arrest.ofns_desc">
+      <h1>${arrest.ofns_desc}</h1>
+      <h2>${arrest.perp_race}</h2>
+    </div>
   </main>
 </template>
+
+
