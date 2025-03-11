@@ -12,7 +12,14 @@ async function getData(url) {
   }
 }
 
-const arrests = result;
+const arrests = await getData(url);
+
+    // id: item.arrest_key,
+    // offence: item.ofns_desc,
+    // ycoord: item.longitude,
+    // xcoord: item.latitude,
+    // race: item.perp_race,
+
 
 
 // const config = {
@@ -34,7 +41,7 @@ const arrests = result;
 <template>
   <main>
     <button @click="getData(url)">Get Data</button>
-    <div v-for="arrest in arrests" :key="arrest.ofns_desc">
+    <div v-for="arrest in arrests" :key="arrest.arrest_key">
       <h1>${arrest.ofns_desc}</h1>
       <h2>${arrest.perp_race}</h2>
     </div>
