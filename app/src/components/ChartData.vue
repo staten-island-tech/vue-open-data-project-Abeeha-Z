@@ -1,6 +1,7 @@
 <script setup>
 const url = "https://data.cityofnewyork.us/resource/uip8-fykc.json";
 
+
 async function getData(url) {
   try {
     const response = await fetch(url);
@@ -15,26 +16,13 @@ async function getData(url) {
 const arrests = await getData(url);
 
     // id: item.arrest_key,
-    // offence: item.ofns_desc,
+    // offense: item.ofns_desc,
     // ycoord: item.longitude,
     // xcoord: item.latitude,
     // race: item.perp_race,
 
 
 
-// const config = {
-//   type: 'radar',
-//   data: data,
-//   options: {
-//     elements: {
-//       line: {
-//         borderWidth: 3
-//       }
-//     }
-//   },
-// };
-
-//graph with latitude asnd longitude axes, points plotted based on provided location, and map of manhattan, aligninig with map coordinates is in the background.
 
 </script>
 
