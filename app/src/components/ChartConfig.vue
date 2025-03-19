@@ -1,42 +1,36 @@
+<template>
+  <div>
+
+  </div>
+</template>
+
 <script setup>
-// const url = "https://data.cityofnewyork.us/resource/uip8-fykc.json";
+export const data = ref(null);
+const loading = ref(true);
+const error = ref(null);
 
-
-// async function getData(url) {
-//   try {
-//     const response = await fetch(url);
-//     const result = await response.json();
-//     console.log(result);
-//     return result;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// const arrests = await getData(url);
-
-//     // id: item.arrest_key,
-//     // offense: item.ofns_desc,
-//     // ycoord: item.longitude,
-//     // xcoord: item.latitude,
-//     // race: item.perp_race,
-
-    export const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Data One',
-      backgroundColor: '#f87979',
-      data: [40, 39, 10, 40, 39, 80, 40]
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://data.cityofnewyork.us/resource/ia2d-e54m.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  ]
-}
+    data.value = await response.json();
+    console.log(data);
+  } catch (e) {
+    error.value = e;
+  } finally {
+    loading.value = false;
+  }
+};
 
-export const options = {
-  responsive: true,
-  maintainAspectRatio: false
-}
+onMounted(() => {
+  fetchData();
+});
+
+
 </script>
 
+<style lang="scss" scoped>
 
-
+</style>

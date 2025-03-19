@@ -1,9 +1,9 @@
 <script setup>
-
+import Line from '@/components/lineChart.vue';
 </script>
 
 <template>
   <main>
-  <ChartConfig/>
+    <Line/>
   </main>
 </template>
