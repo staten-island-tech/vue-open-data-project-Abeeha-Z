@@ -1,10 +1,3 @@
-<template>
-  <div>
-
-  </div>
-</template>
-
-<script setup>
 export const data = ref(null);
 const loading = ref(true);
 const error = ref(null);
@@ -25,12 +18,7 @@ const fetchData = async () => {
 };
 
 onMounted(() => {
-  fetchData();
+  const waterdata = fetchData(url);
+  waterdata.map
 });
 
-
-</script>
-
-<style lang="scss" scoped>
-
-</style>
