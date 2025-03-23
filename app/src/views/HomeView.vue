@@ -1,9 +1,11 @@
 <script setup>
-import Line from '@/components/lineChart.vue';
+import Line from '@/components/lineChart.vue'
+import Bubble from '@/components/bubbleChart.vue'
 </script>
 
 <template>
   <main>
-    <Line/>
+    <Line />
+    <Bubble />
   </main>
 </template>
