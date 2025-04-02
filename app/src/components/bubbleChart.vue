@@ -27,7 +27,6 @@ const fetchResData = async () => {
     )
     const data = await response.json()
     apiData.value = data
-    console.log(apiData.value)
     loaded.value = true
   } catch (e) {
     console.error(e)
@@ -72,7 +71,6 @@ const bubbleData = computed(() => {
     let month = 0
     if (item.cmplnt_fr_dt) {
       month = parseInt(item.cmplnt_fr_dt.split('-')[1])
-      console.log(month)
     }
     crimeDatasets[race].data.push({
       x: month,
