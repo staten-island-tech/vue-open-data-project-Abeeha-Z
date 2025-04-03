@@ -1,5 +1,5 @@
 <template>
-  <Bubble v-if="loaded" :data="bubbleData" />
+  <Bubble v-if="loaded" :chart-options="chartOptions" :data="bubbleData" />
 </template>
 
 <script setup>
@@ -46,6 +46,23 @@ const bubbleData = computed(() => {
   }
 
   const crimeDatasets = {}
+
+  const chartOptions = computed(() => ({
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Month',
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Time',
+          },
+        },
+      },
+    },
+  }))
 
   apiData.value.forEach((item) => {
     const race = item.susp_race
