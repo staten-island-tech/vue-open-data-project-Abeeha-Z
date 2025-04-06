@@ -10,6 +10,8 @@
 import { Chart as ChartJS, Tooltip, Legend, PointElement, LinearScale } from 'chart.js'
 import { Bubble } from 'vue-chartjs'
 import { computed } from 'vue'
+import { ref } from 'vue'
+import { onMounted } from 'vue'
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend)
 
