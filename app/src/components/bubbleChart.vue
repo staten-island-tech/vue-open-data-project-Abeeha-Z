@@ -1,24 +1,17 @@
 <template>
+  <<<<<<< HEAD
   <Bubble v-if="loaded" :chart-options="chartOptions" :data="bubbleData" />
+  =======
+  <Bubble :data="bubbleData" :options="options" />
+  >>>>>>> parent of 479b78d (hbhj)
 </template>
 
-<script setup>
-import {
-  Chart as ChartJS,
-  Tooltip,
-  Legend,
-  PointElement,
-  LinearScale,
-  BubbleController,
-} from 'chart.js'
-
-ChartJS.register(LinearScale, PointElement, Tooltip, Legend, BubbleController)
-
+<script lang="ts">
+import { Chart as ChartJS, Tooltip, Legend, PointElement, LinearScale } from 'chart.js'
 import { Bubble } from 'vue-chartjs'
-import { ref, computed, onMounted } from 'vue'
+import { computed } from 'vue'
 
-const loaded = ref(false)
-const apiData = ref([])
+ChartJS.register(LinearScale, PointElement, Tooltip, Legend)
 
 const fetchResData = async () => {
   try {
