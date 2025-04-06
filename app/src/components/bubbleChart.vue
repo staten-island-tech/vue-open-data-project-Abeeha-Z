@@ -1,9 +1,5 @@
 <template>
-  <<<<<<< HEAD
-  <Bubble v-if="loaded" :chart-options="chartOptions" :data="bubbleData" />
-  =======
-  <Bubble :data="bubbleData" :options="options" />
-  >>>>>>> parent of 479b78d (hbhj)
+  <Bubble v-if="loaded" :data="bubbleData" />
 </template>
 
 <script lang="ts">
@@ -12,6 +8,9 @@ import { Bubble } from 'vue-chartjs'
 import { computed } from 'vue'
 import { ref } from 'vue'
 import { onMounted } from 'vue'
+
+const apiData = ref([])
+const loaded = ref(false)
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend)
 
@@ -41,23 +40,6 @@ const bubbleData = computed(() => {
   }
 
   const crimeDatasets = {}
-
-  const chartOptions = computed(() => ({
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Month',
-        },
-        y: {
-          title: {
-            display: true,
-            text: 'Time',
-          },
-        },
-      },
-    },
-  }))
 
   apiData.value.forEach((item) => {
     const race = item.susp_race
